@@ -5,8 +5,8 @@
 #pragma config(Sensor, I2C_4,  ,               sensorQuadEncoderOnI2CPort,    , AutoAssign)
 #pragma config(Motor,  port1,           rDrive,        tmotorVex393, openLoop)
 #pragma config(Motor,  port2,           lDrive,        tmotorVex393, openLoop)
-#pragma config(Motor,  port3,           rTopShooter,   tmotorVex393, openLoop)
-#pragma config(Motor,  port4,           lTopShooter,   tmotorVex393, openLoop)
+#pragma config(Motor,  port3,           rTopShooter,   tmotorVex393, openLoop, encoder, encoderPort, I2C_1, 1000)
+#pragma config(Motor,  port4,           lTopShooter,   tmotorVex393, openLoop, encoder, encoderPort, I2C_2, 1000)
 #pragma config(Motor,  port5,           rBottomShooter, tmotorVex393, openLoop, encoder, encoderPort, I2C_3, 1000)
 #pragma config(Motor,  port6,           lBottomShooter, tmotorVex393, openLoop, encoder, encoderPort, I2C_4, 1000)
 #pragma config(Motor,  port7,           intake,        tmotorVex393, openLoop)
@@ -23,14 +23,13 @@ task main()
 	int slaveLT = SHOOT_DEFAULT_SPEED;
 	int slaveRB = SHOOT_DEFAULT_SPEED;
 	int slaveLB = SHOOT_DEFAULT_SPEED;
-	int error = 0;
 
 	while(true){
 		/* Drive Code */
 		motor[rDrive] = joyRDr;
 		motor[lDrive] = joyLDr;
 
-		
+
 		/* Intake Code */
 		if(joyIntakeI > 0){
 			motor[intake] = INTAKE_SPEED;
@@ -66,14 +65,18 @@ task main()
 			wait1Msec(100);
 		}else{ //manual
 			if(startR > 0 || startBM > 0){
-				motor[shooterR] = SHOOT_DEFAULT_SPEED;
+				motor[rTopShooter] = SHOOT_DEFAULT_SPEED;
+				motor[rBottomShooter] = SHOOT_DEFAULT_SPEED;
 			}else{
-				motor[shooterR] = 0;
+				motor[rTopShooter] = 0;
+				motor[rBottomShooter] = 0;
 			}
 			if(startL > 0 || startBM > 0){
-				motor[shooterL] = SHOOT_DEFAULT_SPEED;
+				motor[lTopShooter] = SHOOT_DEFAULT_SPEED;
+				motor[lBottomShooter] = SHOOT_DEFAULT_SPEED;
 			}else{
-				motor[shooterL] = 0;
+				motor[lTopShooter] = 0;
+				motor[lBottomShooter] = 0;
 			}
 		}
 	}

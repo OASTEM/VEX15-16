@@ -31,8 +31,8 @@
 /* Intake Definitions */
 
 //Joystick
-#define joyIntakeI vexRT[Ch9U]
-#define joyIntakeO vexRT[Ch9D]
+#define joyIntakeI vexRT[Btn8L]
+#define joyIntakeO vexRT[Btn8R]
 
 //Values
 #define INTAKE_SPEED 110

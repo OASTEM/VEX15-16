@@ -19,7 +19,6 @@ task main()
 	int slaveLT = SHOOT_DEFAULT_SPEED;
 	int slaveRB = SHOOT_DEFAULT_SPEED;
 	int slaveLB = SHOOT_DEFAULT_SPEED;
-	int error = 0;
 
 	while(true){
 		if(autoOn > 0){ //toggle auto states
@@ -46,14 +45,18 @@ task main()
 			wait1Msec(100);
 		}else{ //manual
 			if(startR > 0 || startBM > 0){
-				motor[shooterR] = SHOOT_DEFAULT_SPEED;
+				motor[rTopShooter] = SHOOT_DEFAULT_SPEED;
+				motor[rBottomShooter] = SHOOT_DEFAULT_SPEED;
 			}else{
-				motor[shooterR] = 0;
+				motor[rTopShooter] = 0;
+				motor[rBottomShooter] = 0;
 			}
 			if(startL > 0 || startBM > 0){
-				motor[shooterL] = SHOOT_DEFAULT_SPEED;
+				motor[lTopShooter] = SHOOT_DEFAULT_SPEED;
+				motor[lBottomShooter] = SHOOT_DEFAULT_SPEED;
 			}else{
-				motor[shooterL] = 0;
+				motor[lTopShooter] = 0;
+				motor[lBottomShooter] = 0;
 			}
 		}
 	}
