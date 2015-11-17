@@ -7,15 +7,16 @@
 #define DEFAULT_SPEED 110
 #define KONSTANT 5
 
-#define autoOn vexRT[Btn5U] //turn on auto (encoder)
-#define autoOff vexRT[Btn5D] //turn off auto (encoder)
+//auto = alwaysOn; manual = whenButtonPressedOnly
+#define autoOn vexRT[Btn5U] //turn on auto
+#define autoOff vexRT[Btn5D] //turn off auto
 #define startR vexRT[Btn8R] //right manually
 #define startL vexRT[Btn7L] //left manually
 #define startBM vexRT[Btn6U] //both manually
-#define startBA vexRT[Btn6D] //both manually (with encoders)
+//#define startBA vexRT[Btn6D] //both manually (with encoders)
 
-#define shR nMotorEncoder[shooterR]
-#define shL nMotorEncoder[shooterL]
+//#define shR nMotorEncoder[shooterR]
+//#define shL nMotorEncoder[shooterL]
 
 task main()
 {
@@ -33,15 +34,8 @@ task main()
 		}
 
 		if(isAuto || startBA > 0){ //if automatic
-			motor[shooterR] = masterPow;
-			motor[shooterL] = slavePow;
-
-			error = shR - shL;
-
-			slavePow += error / KONSTANT;
-
-			shR = 0;
-			shL = 0;
+			motor[shooterR] = DEFAULT_SPEED;
+			motor[shooterL] = DEFAULT_SPEED;
 		}else{ //manual
 			if(startR > 0 || startBM > 0){
 				motor[shooterR] = DEFAULT_SPEED;
