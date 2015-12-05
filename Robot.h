@@ -24,8 +24,8 @@
 /* Drive Definitions */
 
 //Joystick
-#define joyLDr vexRT[Ch4]
-#define joyRDr vexRT[Ch1]
+#define joyLDr vexRT[Ch3]
+#define joyRDr vexRT[Ch2]
 
 
 /* Intake Definitions */
