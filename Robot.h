@@ -1,7 +1,7 @@
 /* Shooter Definitions */
 
 //Values
-#define SHOOT_DEFAULT_SPEED 110
+#define SHOOT_DEFAULT_SPEED 120
 #define KONSTANT 5
 
 //Joystick Buttons
