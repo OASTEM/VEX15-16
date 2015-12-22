@@ -4,9 +4,11 @@
 
 #define drive(l,r) motor[lDrive] = l; motor[rDrive] = r
 
+/**
 #define liftGate() motor[gate] = GATE_SPEED
 #define dropGate() motor[gate] = -GATE_SPEED
 #define stopGate() motor[gate] = 0
+*/
 
 #define startRight() motor[rTopShooter] = SHOOT_DEFAULT_SPEED; motor[rBottomShooter] = SHOOT_DEFAULT_SPEED
 #define stopRight() motor[rTopShooter] = 0;	motor[rBottomShooter] = 0

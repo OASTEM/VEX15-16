@@ -22,8 +22,8 @@
 /* Gate Definitions */
 
 //Joystick
-#define joyGateUp vexRT[Btn6U]
-#define joyGateDown vexRT[Btn6D]
+#define joyGateUp vexRT[Btn7U]
+#define joyGateDown vexRT[Btn7D]
 
 //Values
 #define GATE_SPEED 110
